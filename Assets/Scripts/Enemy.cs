@@ -11,12 +11,17 @@ public class Enemy : MonoBehaviour {
     private float passedTime = 0.0f;
     private GameObject player;
 
+    private Vector3 position;
+
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         player = GameObject.FindWithTag("Player");
+        position = gameObject.transform.position;
     }
 
     // Update is called once per frame
+
     void Update() {
         transform.LookAt(player.transform);
         passedTime += 1 * Time.deltaTime;
@@ -38,4 +43,4 @@ public class Enemy : MonoBehaviour {
         player.GetComponent<Player>().score += pointsGiven;
         Destroy(this.gameObject);
     }
-}
+} 
